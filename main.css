@@ -1,0 +1,133 @@
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      overflow-x:hidden;
+      
+    }
+
+    .chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      
+      
+     
+      
+      
+    }
+
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #6a11cb;
+      color: white;
+      font-size: 18px;
+    }
+
+    .chat-header .profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .chat-header .profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .chat-header .three-dots {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .chat-body {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      height: 100vh;
+      
+      
+    }
+
+    .chat-footer {
+      position: fixed;
+      
+      display: flex;
+      padding: 15px;
+      background: #e9ecef;
+      border-top: 1px solid #ddd;
+      bottom: 10vmin;
+      width: 100%;
+      transform: translateY(14vmin)
+      
+    }
+
+    .message {
+      max-width: 70%;
+      padding: 10px 15px;
+      border-radius: 15px;
+      font-size: 14px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .user-message {
+      align-self: flex-end;
+      background: #6a11cb;
+      color: white;
+      text-align: right;
+    }
+
+    .bot-message {
+      align-self: flex-start;
+      background: #e9ecef;
+      color: #333;
+      text-align: left;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chat-input {
+      flex: 1;
+      margin-right: 10px;
+      margin-top: -17vmin;
+      
+    }
+
+    .chat-input input {
+      height: 50px;
+      font-size: 16px;
+    }
+
+    .btn-send {
+      height: 50px;
+      font-size: 16px;
+      margin-top: -17vmin;
+    }
