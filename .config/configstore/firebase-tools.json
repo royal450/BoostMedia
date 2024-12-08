@@ -1,0 +1,38 @@
+{
+	"motd": {
+		"cloudBuildErrorAfter": 1594252800000,
+		"cloudBuildWarnAfter": 1590019200000,
+		"defaultNode10After": 1594252800000,
+		"minVersion": "3.0.5",
+		"node8DeploysDisabledAfter": 1613390400000,
+		"node8RuntimeDisabledAfter": 1615809600000,
+		"node8WarnAfter": 1600128000000,
+		"fetched": 1733679862171
+	},
+	"usage": false,
+	"user": {
+		"iss": "accounts.google.com",
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "103950857363351601189",
+		"email": "tkrk5960@gmail.com",
+		"email_verified": true,
+		"at_hash": "MONPZFBp5mYbdippzz5KzQ",
+		"iat": 1733430252,
+		"exp": 1733433852
+	},
+	"tokens": {
+		"expires_at": 1733683487106,
+		"refresh_token": "1//0g-fj24ejjH_bCgYIARAAGBASNwF-L9Ir0E0_f9iTnn0v6gAv0HxhWiPwPDdgZvQ5R1m1A-lwb9ePc99rI7NxIT3O7vw1SqsSaP0",
+		"scopes": [],
+		"access_token": "ya29.a0AeDClZCU2QKRDVGJM17X2csV2tjsW_y0b1Q5ehpIK-ue9q_cFgcr1CQbP9voIACrctgK6dGL3kXyKa6CYnoBS9Z2QH1NaJu0uMy1Lpi9TjM13x4DPpUfOtl8EIu0TIYoiIshrG9oaFim6NlOT-Fya4eq8sjsgGjhtHuFwLG6g28MnGEaCgYKAS0SARASFQHGX2MiBMxjQe6rCu6eATkJZmAECQ0182",
+		"expires_in": 3599,
+		"scope": "https://www.googleapis.com/auth/firebase https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email openid",
+		"token_type": "Bearer",
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjJjOGEyMGFmN2ZjOThmOTdmNDRiMTQyYjRkNWQwODg0ZWIwOTM3YzQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAzOTUwODU3MzYzMzUxNjAxMTg5IiwiZW1haWwiOiJ0a3JrNTk2MEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IkkxcDVDQ1ZLbldPQVhIc0NadW94QWciLCJpYXQiOjE3MzM2Nzk4ODgsImV4cCI6MTczMzY4MzQ4OH0.HtTufGZmKo1i2k38fgWJ-oVFkIgHGzmykXmZnENfRK3TgJYBJqgvxw-65Q3ykl7IWRLXHdukOdU9VjtApL24vlk5mWo2U4tWgJRvZA-Wxcxb6oOgKqVKpyqigDj04n4e15805eHRbr9Gw7i0lAkFAcv10WbaJfuLl0mkPduSx0DpAnhJCedntCP4qPtwsCkY-IQLhNMj2LEssVRtI2tlTEwhcCGtSyI7HW3Y8xYEeYf2Mypy6JMC8TA3gooZFCTU1g_2dfz6QoLiqu7yPox19qx3B3yIKPas7TBqX5_KhvabrluY2JNIbaZJvCe-CDNG02_e2Lm1MCZiFaDic5C65Q"
+	},
+	"activeProjects": {
+		"/storage/emulated/0/Download/BoostMedia": "boostmedialtdbapparamhanuman",
+		"/data/data/com.termux/files/home": "get-good-night"
+	}
+}

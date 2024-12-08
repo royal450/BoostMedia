@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "get-good-night",
+    "firebase use --add": "get-good-night"
+  },
+  "targets": {},
+  "etags": {}
+}
