@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Growth+ Indian Choice</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/SignupPage/style.css">
+
+   
+   <style>
+      
+     
+      
+   
+      body {
+         font-family: 'Roboto', sans-serif;
+         margin: 0;
+         padding: 0;
+         height: 100vh;
+         overflow: hidden;
+         position: relative;
+         color: #333;
+         transition: color 0.5s;
+         overflow-x: hidden;
+      }
+
+      canvas {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: 0;
+      }
+
+      .full-width-container {
+         position: relative;
+         width: 100%;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         z-index: 1; /* Above canvas */
+     
+        overflow-x: hidden;
+        overflow-y: scroll;
+      }
+
+      .container {
+         background-color: rgba(255, 255, 255, 0.9);
+         border-radius: 30px;
+         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+         padding: 40px;
+         width: 100%;
+         max-width: 400px;
+         position: relative;
+         transition: background-color 0.5s, color 0.5s;
+         z-index: 1; /* Above canvas */
+         margin-top: -10vmin; /* Adjusted margin top */
+         ;
+     
+      }
+
+      h2 {
+         text-align: center;
+         margin-bottom: 30px;
+         font-weight: 700;
+         position: relative;
+      }
+
+      h2::after {
+         content: '';
+         display: block;
+         width: 60px;
+         height: 4px;
+         background: #6a11cb;
+         margin: 10px auto;
+         border-radius: 5px;
+      }
+
+      .form-group {
+         position: relative;
+         margin-bottom: 20px;
+      }
+
+      .form-control {
+         border-radius: 30px;
+         padding-left: 50px; /* For icon */
+         height: 50px;
+         font-size: 16px;
+         line-height: 1.5; /* Added line height */
+         transition: border-color 0.5s, box-shadow 0.5s;
+      }
+
+      .form-control:focus {
+         border-color: #6a11cb;
+         box-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
+      }
+
+      .input-icon {
+         position: absolute;
+         left: 15px;
+         top: 50%;
+         transform: translateY(-50%);
+         color: #999;
+         pointer-events: none;
+         font-size: 18px;
+      }
+
+      .btn-primary {
+         background-color: #6a11cb;
+         border-radius: 30px;
+         padding: 12px;
+         font-weight: 600;
+         transition: background-color 0.5s, transform 0.5s;
+         border: none;
+      }
+
+      .btn-primary:hover {
+         background-color: #2575fc;
+         transform: translateY(-2px);
+         box-shadow: 0 5px 15px rgba(38, 117, 252, 0.3);
+      }
+
+      /* Toggle Box */
+      .toggle-box {
+         position: absolute;
+         left: 20px; /* Adjust the left positioning */
+         top: 2vmax; /* Adjust the top positioning */
+         background-color: rgba(255, 255, 255, 0.8);
+         padding: 10px;
+         border-radius: 15px;
+         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+         z-index: 1; /* Above canvas */
+      }
+
+      .toggle-box label {
+         font-weight: bold;
+         margin-right: 10px;
+      }
+
+      /* Card Styles */
+      .card-container {
+         display: flex;
+         overflow: hidden; /* Hide the overflow */
+         padding: 10px 0;
+         width: 100%;
+         max-width: 500px;
+         margin-top: 30px; /* Adjusted margin for card positioning */
+         scroll-behavior: smooth; /* Smooth scrolling */
+         transform: translateY(-10vmin) translateX(5.4vmin);
+      }
+
+      .info-card {
+         background-color: #f8f9fa; /* Light background for cards */
+         border-radius: 15px;
+         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+         padding: 20px;
+         margin-right: 15px; /* Spacing between cards */
+         margin-bottom: 0px;
+         margin-top: 5vmin; /* 20px margin between card info */
+         flex: 0 0 auto; /* Prevent card from growing */
+         width: 200px; /* Fixed width for cards */
+         text-align: center;
+         transition: transform 0.3s;
+         font-family: 'Raleway', sans-serif; /* Unique font for cards */
+         height: 15vh; /* Card height */
+         background: crimson;
+         color: #fff;
+         font-size: 14px; /* Increase font size for better visibility */
+      }
+
+      .info-card:hover {
+         transform: scale(1.05); /* Slight zoom effect on hover */
+      }
+
+      .dark-mode {
+         background-color: #1c1c1c;
+         color: white;
+      }
+
+      .dark-mode .container {
+         background-color: #2a2a2a;
+      }
+
+      .dark-mode .form-control {
+         background-color: #444;
+         color: white;
+         border: none;
+      }
+
+      .dark-mode .form-control:focus {
+         border-color: #6a11cb;
+         box-shadow: 0 0 10px rgba(106, 17, 203, 0.5);
+      }
+
+      .dark-mode .btn-primary {
+         background-color: #444;
+      }
+
+      .dark-mode .btn-primary:hover {
+         background-color: #555;
+      }
+
+      .dark-mode .input-icon {
+         color: #ccc;
+      }
+
+      .dark-mode .info-card {
+         background-color: #3c3c3c; /* Dark background for cards */
+         color: #f8f9fa; /* Light text color */
+      }
+
+      @media (max-width: 1200px) {
+         .container {
+            padding: 20px;
+         }
+
+         .info-card {
+            width: 90%; /* Use 90% width for mobile */
+        
+        
+         }
+      }
+      
+      
+      
+      
+      
+      
+      
+    
+    
+      
+      
+      
+      
+  
+      
+      
+      
+      
+   </style>
+   
+   
+   
+   
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Firebase JS SDK -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getDatabase, ref, set, get } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDo55nFQ9hTbsCHEfyQUHPdRxShpnoCyMU",
+        authDomain: "get-good-night.firebaseapp.com",
+        databaseURL: "https://get-good-night-default-rtdb.firebaseio.com",
+        projectId: "get-good-night",
+        storageBucket: "get-good-night.appspot.com",
+        messagingSenderId: "73537901378",
+        appId: "1:73537901378:web:14346af46a52c51a152edb",
+        measurementId: "G-46M9YETL5"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Function to show loader
+    function showLoader() {
+        document.getElementById("loader").style.display = "flex"; // Show loader
+    }
+
+    // Function to hide loader
+    function hideLoader() {
+        document.getElementById("loader").style.display = "none"; // Hide loader
+    }
+
+    // Function to check if the user exists based on IP address
+    async function checkUserIP() {
+        showLoader(); // Show loader while processing
+        try {
+            // Fetch the user's IP address
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+            const userIP = ipData.ip.replace(/\./g, '_'); // Format IP for Firebase key
+
+            // Check if the IP exists in the database
+            const ipRef = ref(database, 'ipMapping/' + userIP);
+            const snapshot = await get(ipRef);
+
+            if (snapshot.exists()) {
+                // Redirect if account exists
+                window.location.href = "https://firebasestorage.googleapis.com/v0/b/get-good-night.appspot.com/o/HomeDasBord%20(6).html?alt=media&token=ee7267c9-6b5c-4a98-93e2-a68f33faf05e";
+            } else {
+                hideLoader(); // Stop the loader if no account exists
+            }
+        } catch (error) {
+            console.error('Error checking user IP:', error);
+            hideLoader(); // Stop loader in case of an error
+        }
+    }
+
+    // Function to save user data to Firebase
+    async function saveUserData(name, phone, email, password, country) {
+        showLoader(); // Show loader while saving data
+        try {
+            const ipResponse = await fetch('https://api.ipify.org?format=json');
+            const ipData = await ipResponse.json();
+            const userIP = ipData.ip.replace(/\./g, '_'); // Format IP for Firebase key
+            const currency = getCurrencyByCountry(country);
+
+            // Save user data along with IP and currency
+            const userRef = ref(database, 'ipMapping/' + userIP);
+            await set(userRef, {
+                name: name,
+                phone: phone,
+                email: email,
+                password: password,
+                country: country,
+                balance: 0,
+                currency: currency
+            });
+
+            // Redirect to the dashboard after successful signup
+            window.location.href = "https://firebasestorage.googleapis.com/v0/b/get-good-night.appspot.com/o/HomeDasBord%20(6).html?alt=media&token=ee7267c9-6b5c-4a98-93e2-a68f33faf05e";
+        } catch (error) {
+            console.error('Error saving user data:', error);
+            hideLoader(); // Stop loader in case of an error
+        }
+    }
+
+    // Function to get the currency based on the country
+    function getCurrencyByCountry(countryCode) {
+        const currencyMap = {
+            "IN": "INR", // India
+            "US": "USD", // United States
+            "GB": "GBP", // United Kingdom
+            "CA": "CAD", // Canada
+            "AU": "AUD", // Australia
+            "EU": "EUR", // European Union
+        };
+
+        return currencyMap[countryCode] || "USD"; // Default to USD if not found
+    }
+
+    // Main logic
+    document.getElementById("signup-form").addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form values
+        const name = document.getElementById("name").value;
+        const phone = document.getElementById("phone").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        const country = document.getElementById("country").value;
+
+        // Save the user data if no existing account
+        await saveUserData(name, phone, email, password, country);
+    });
+
+    // Automatically check IP on page load
+    document.addEventListener('DOMContentLoaded', async () => {
+        await checkUserIP(); // Redirect silently if account exists
+    });
+</script>
+
+<!-- Loader -->
+<div id="loader" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="border: 5px solid rgba(255, 255, 255, 0.3); border-top: 5px solid white; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;"></div>
+</div>
+
+<style>
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <div class="full-width-container">
+        <div class="toggle-box">
+            <label for="toggle-btn" id="toggle-label">Light Mode</label>
+            <input type="checkbox" id="toggle-btn">
+        </div>
+
+        <!-- Card Container Above the Form -->
+        <div class="card-container" id="card-container">
+            <div class="info-card">
+                <h5>India's No. 1 SMM Website</h5>
+                <p style="font-size: 3vmin">Trusted by millions of Indians. And Very Less Price and Provide More active YouTube Subscribers</p>
+            </div>
+        </div>
+
+        <div class="container" id="signup-container">
+            <h2><i class="fas fa-ser-plus"></i>Boost Media</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-phone input-icon"></i>
+                    <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                </div>
+          
+          
+          <div class="form-group">
+    <i class="fas fa-globe input-icon"></i>
+    <select class="form-control" id="country" required>
+        <option value="">Select your country</option>
+        <option value="India">India</option>
+        <option value="United States">United States</option>
+        <option value="United Kingdom">United Kingdom</option>
+        <option value="Australia">Australia</option>
+        <option value="Canada">Canada</option>
+        <option value="Germany">Germany</option>
+        <option value="France">France</option>
+        <option value="Japan">Japan</option>
+        <option value="Singapore">Singapore</option>
+        <option value="New Zealand">New Zealand</option>
+        <option value="South Africa">South Africa</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Brazil">Brazil</option>
+        <option value="Italy">Italy</option>
+        <option value="Spain">Spain</option>
+        <option value="Sweden">Sweden</option>
+    </select>
+</div>
+
+          
+          
+          
+                <button type="submit" class="btn btn-primary btn-block">Signup</button>
+        
+        
+        
+        
+        
+        
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // Toggle Dark Mode
+        const toggleBtn = document.getElementById('toggle-btn');
+        const body = document.body;
+        const container = document.getElementById('signup-container');
+
+        toggleBtn.addEventListener('change', () => {
+            body.classList.toggle('dark-mode');
+            container.classList.toggle('dark-mode');
+            document.getElementById('toggle-label').innerText = toggleBtn.checked ? 'Dark Mode' : 'Light Mode';
+        });
+
+        // Auto Scroll Cards
+        const cardContainer = document.getElementById('card-container');
+        const scrollInterval = 3000; // 3 seconds
+
+        function autoScroll() {
+            cardContainer.scrollBy({ top: 0, left: 200, behavior: 'smooth' });
+            setTimeout(() => {
+                if (cardContainer.scrollLeft >= cardContainer.scrollWidth - cardContainer.clientWidth) {
+                    cardContainer.scrollLeft = 0;
+                }
+            }, scrollInterval);
+        }
+
+        // Start auto scrolling
+        setInterval(autoScroll, scrollInterval);
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
